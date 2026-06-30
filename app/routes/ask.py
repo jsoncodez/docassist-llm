@@ -19,10 +19,7 @@ class AskRequest(BaseModel):
 
 @router.on_event("startup")
 def load_document():
-    """
-    In real systems, this would load a database.
-    For now, we load a single PDF.
-    """
+
 
     global vector_store
 

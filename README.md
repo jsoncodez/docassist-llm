@@ -24,4 +24,8 @@ An AI-powered document assistant that allows users to upload PDFs and ask natura
 - [x] Embeddings
 - [x] FAISS vector search
 - [x] LLM integration
-- [ ] Additional Feature To Be Continued.
+- [ ] Refactor allowing new data to be parsed. 
+  - (need to connect /upload and /ask; document rebuilt every time app starts; remove temp file being written)
+- [ ] Front End
+- [ ] Docker implementation
+- [ ] Deploy
