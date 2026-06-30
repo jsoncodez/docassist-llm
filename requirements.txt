@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+pypdf
+python-multipart
+
+# Embedding library - convert chunks into list of numbers
+sentence-transformers
+faiss-cpu # FAISS VECTOR SEARCH - take user question, convert into embedding, search relevant chunks, return only those to LLM
+
+ollama
