@@ -1,18 +1,34 @@
 from fastapi import FastAPI
+from contextlib import asynccontextmanager
 
 from app.routes.upload import router as upload_router
 from app.routes.ask import router as ask_router
-from app.services.document_service import document_service
+from app.services.document_service import DocumentService
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):   #lifecycle = START → setup resources → RUN API → shutdown cleanup
+
+    service = DocumentService()
+    service.load_document("data/sample.pdf")
+    app.state.document_service = service
+
+    yield
+
+    #shut down / cleanup
+    print("Shutting down..")
+    app.state.document_service = None
+        # potential others;
+            #save FAISS index to disk
+            # chunk metadata
+            # close external db or other client
+
 
 app = FastAPI(
-    title="Document Assistant",
-    version="1.0.0"
+    title="DocAisist",
+    version="1.0.0",
+    lifespan=lifespan
 )
-
-
-@app.on_event("startup")
-def startup():
-    document_service.load_document("data/sample.pdf")
 
 
 @app.get("/")

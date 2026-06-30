@@ -65,4 +65,3 @@ class DocumentService:
             "sources": relevant_chunks
         }
 
-document_service = DocumentService()

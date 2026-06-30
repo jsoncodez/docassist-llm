@@ -1,7 +1,5 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 from pydantic import BaseModel
-
-from app.services.document_service import document_service
 
 router = APIRouter()
 
@@ -11,5 +9,6 @@ class AskRequest(BaseModel):
 
 
 @router.post("/ask")
-def ask(req: AskRequest):
-    return document_service.ask(req.question)
+def ask(req: AskRequest, request: Request):
+    service = request.app.state.document_service
+    return service.ask(req.question)

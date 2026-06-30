@@ -29,3 +29,11 @@ An AI-powered document assistant that allows users to upload PDFs and ask natura
 - [ ] Front End
 - [ ] Docker implementation
 - [ ] Deploy
+
+## How to run locally (@ current stage June 29, 2026)
+- Download Ollama
+- pip install -r requirements
+- Run Ollama
+  - ollama run llama3.2
+- Run local API server
+  - uvicorn app.main:app --reload

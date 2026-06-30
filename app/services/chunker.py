@@ -1,6 +1,6 @@
 def chunk_text(text: str, chunk_size: int = 500, overlap: int = 100):
 
-    # Note, overlap int = 100.  reason for overlap is to prevent breaking up mid sentence.
+    # overlap int = 100.  reason for overlap is to prevent breaking up mid sentence.
 
     chunks = []
 
