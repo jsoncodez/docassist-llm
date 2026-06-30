@@ -20,8 +20,8 @@ An AI-powered document assistant that allows users to upload PDFs and ask natura
 
 - [x] Project setup
 - [x] PDF text extraction
-- [x] File upload API
-- [x] Embeddings
-- [x] FAISS vector search
-- [x] LLM integration
+- [] File upload API
+- [] Embeddings
+- [] FAISS vector search
+- [] LLM integration
 - [ ] Additional Feature To Be Continued.
