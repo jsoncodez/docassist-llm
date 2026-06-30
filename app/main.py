@@ -1,12 +1,24 @@
 from fastapi import FastAPI
+
 from app.routes.upload import router as upload_router
 from app.routes.ask import router as ask_router
+from app.services.document_service import document_service
 
-app = FastAPI(title="Document Assistant", version="1.0.0")
+app = FastAPI(
+    title="Document Assistant",
+    version="1.0.0"
+)
+
+
+@app.on_event("startup")
+def startup():
+    document_service.load_document("data/sample.pdf")
+
 
 @app.get("/")
 def root():
     return {"message": "API running"}
+
 
 app.include_router(upload_router)
 app.include_router(ask_router)

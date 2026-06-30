@@ -1,10 +1,6 @@
 def chunk_text(text: str, chunk_size: int = 500, overlap: int = 100):
-    """
-    Split text into overlapping chunks.
 
-    Why overlap?
-    → So sentences that span boundaries are not lost.
-    """
+    # Note, overlap int = 100.  reason for overlap is to prevent breaking up mid sentence.
 
     chunks = []
 
@@ -18,7 +14,7 @@ def chunk_text(text: str, chunk_size: int = 500, overlap: int = 100):
 
         chunks.append(chunk)
 
-        # move window forward with overlap
+
         start += chunk_size - overlap
 
     return chunks

@@ -2,9 +2,7 @@ import ollama
 
 
 def generate_answer(question: str, context_chunks: list[str]) -> str:
-    """
-    Generate answer using retrieved document context.
-    """
+
 
     context = "\n\n".join(context_chunks)
 
